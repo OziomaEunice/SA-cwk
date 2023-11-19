@@ -82,7 +82,7 @@ public class MainFrame extends JFrame {
                 // in the Welcome Label.
                 String text1 = textField1.getText();
                 String text2 = textField2.getText();
-                lbWelcome.setText("Welcome " + text1 + " " + text2);
+                lbWelcome.setText("Welcome " + text1 + " " + " - " + text2);
                 cardLayout.show(cardPanel, "welcomePanel");                
             } 
         });
