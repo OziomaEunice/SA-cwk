@@ -92,7 +92,7 @@ public class MainFrame extends JFrame {
         // Create a main panel for this frame
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout()); // Set the layout manager of the main panel
-        mainPanel.setBackground(new Color(128, 128, 255)); // set the main colour of the panel
+        mainPanel.setBackground(new Color(220, 220, 220)); // set the main colour of the panel
         mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // set margin of the panel
 
         //add form panel and welcome label to main panel
