@@ -4,6 +4,6 @@ package client;
 public class Run_all_files{
     public static void main(String[] args) {
         MainFrame mainFrame = new MainFrame();
-        mainFrame.initialisation();
+        
     }
 }
