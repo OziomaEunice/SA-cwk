@@ -12,8 +12,10 @@ public class MainFrame extends JFrame {
     CardLayout cardLayout; // Global variable -> Create a card layout
 
 
+
     // Create the constructor of the class
     public MainFrame() {
+
         cardPanel = new JPanel();
         cardLayout = new CardLayout();
         cardPanel.setLayout(cardLayout); // Set the layout manager of the card panel
@@ -80,10 +82,15 @@ public class MainFrame extends JFrame {
                 // This method will be executed when the button is clicked.
                 // What happens here is to read the text in the 2 textfields, and display them
                 // in the Welcome Label.
-                String text1 = textField1.getText();
-                String text2 = textField2.getText();
-                lbWelcome.setText("Welcome " + text1 + " " + " - " + text2);
-                cardLayout.show(cardPanel, "welcomePanel");                
+                // String text1 = textField1.getText();
+                // String text2 = textField2.getText();
+                // lbWelcome.setText("Welcome " + text1 + " " + " - " + text2);
+                lbWelcome.setText("\nOpening the functionalities window...");
+                cardLayout.show(cardPanel, "welcomePanel");     
+                
+                // Call the method that will display the functionalities window
+                Functionalities functionalities = new Functionalities();
+                functionalities.setVisible(true);
             } 
         });
 
@@ -134,7 +141,7 @@ public class MainFrame extends JFrame {
         JPanel welcomePanel = new JPanel(new BorderLayout()); // Set the layout manager of the welcome panel
         welcomePanel.setBackground(new Color(220, 220, 220)); // set the main colour of the panel
         welcomePanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // set margin of the panel
-        welcomePanel.add(lbWelcome, BorderLayout.NORTH); // add the welcome label to the welcome panel
+        welcomePanel.add(lbWelcome, BorderLayout.CENTER); // add the welcome label to the welcome panel
         
         cardPanel.add(welcomePanel, "welcomePanel"); // add the welcome panel to the card panel
     }
