@@ -41,5 +41,53 @@ public class Functionalities extends JFrame{
         welcomePanel.add(lbWelcome, BorderLayout.NORTH); // add the welcome label to the welcome panel
         
         cardPanel.add(welcomePanel, "welcomePanel"); // add the welcome panel to the card panel
+
+
+
+        /* This part of code from ChatGPT */
+        // Create a panel for buttons arranged in two columns
+        JPanel buttonPanel = new JPanel(new GridLayout(0, 2, 10, 10)); // 0 rows, 2 columns
+
+        // Create buttons and add action listeners
+        for (int i = 1; i <= 5; i++) {
+            JButton button = new JButton("Button " + i);
+            button.setFont(maiFont);
+            button.setForeground(Color.WHITE);
+            button.setBackground(getButtonColor(i)); // Get different colors for buttons
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Perform action when button is clicked
+                    // For example, transitioning to a new page
+                    // Replace this with your desired functionality
+                    System.out.println("Button " + " clicked");
+                    // You can open a new page or perform other actions here
+                }
+            });
+            buttonPanel.add(button);
+        }
+
+        // Add the button panel to the main panel
+        welcomePanel.add(buttonPanel, BorderLayout.CENTER);
+
+        cardPanel.add(welcomePanel, "welcomePanel");
+    }
+
+    // Function to get different colors for buttons
+    private Color getButtonColor(int index) {
+        switch (index) {
+            case 1:
+                return Color.RED;
+            case 2:
+                return Color.BLUE;
+            case 3:
+                return Color.GREEN;
+            case 4:
+                return Color.ORANGE;
+            case 5:
+                return Color.MAGENTA;
+            default:
+                return Color.BLACK;
+        }
     }
 }
