@@ -7,7 +7,7 @@ import javax.swing.*;
 
 public class MainFrame extends JFrame {
 
-    final private Font maiFont = new Font("Segoe print", Font.BOLD, 18); // Global variable -> Create a font for the main panel
+    final private Font maiFont = new Font("Segoe UI Black", Font.BOLD, 18); // Global variable -> Create a font for the main panel
     JTextField textField1, textField2; // Global variable -> Create a text field for the main panel
     JLabel lbWelcome; // Global variable -> Create a label for the main panel
 
@@ -47,6 +47,7 @@ public class MainFrame extends JFrame {
 
         lbWelcome = new JLabel();
         lbWelcome.setFont(maiFont); // Set the font of the label
+        lbWelcome.setHorizontalAlignment(JLabel.CENTER); // Set the alignment of the label
 
 
         /********************Button Panel**********************/
