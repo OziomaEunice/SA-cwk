@@ -48,9 +48,19 @@ public class Functionalities extends JFrame{
         // Create a panel for buttons arranged in two columns
         JPanel buttonPanel = new JPanel(new GridLayout(0, 2, 10, 10)); // 0 rows, 2 columns
 
+        // Create button names
+        String[] buttonNames = {
+            "Price Control",
+            "Inventory Control",
+            "Delivery Charge",
+            "Approval of Financial Support",
+            "Performance Analysis"
+        };
+
         // Create buttons and add action listeners
-        for (int i = 1; i <= 5; i++) {
-            JButton button = new JButton("Button " + i);
+        for (int i = 0; i < buttonNames.length; i++) {
+            final int index = i;
+            JButton button = new JButton(buttonNames[i]);
             button.setFont(maiFont);
             button.setForeground(Color.WHITE);
             button.setBackground(getButtonColor(i)); // Get different colors for buttons
@@ -60,7 +70,7 @@ public class Functionalities extends JFrame{
                     // Perform action when button is clicked
                     // For example, transitioning to a new page
                     // Replace this with your desired functionality
-                    System.out.println("Button " + " clicked");
+                    System.out.println(buttonNames[index] + " clicked");
                     // You can open a new page or perform other actions here
                 }
             });
