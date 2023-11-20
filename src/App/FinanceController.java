@@ -1,4 +1,4 @@
-package LogicTier;
+package App;
 
 public class FinanceController {
     // Type something...

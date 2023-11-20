@@ -1,4 +1,4 @@
-package LogicTier;
+package App;
 
 public class priceController {
     //Type something...
