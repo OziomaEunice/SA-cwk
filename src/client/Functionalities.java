@@ -77,6 +77,8 @@ public class Functionalities extends JFrame{
                 public void actionPerformed(ActionEvent e) {
                     // When button is clicked,
                     // display results in the console
+
+                    //For Price Control:
                     List<Product> products = productDAO.getProducts();
                     for (Product product : products) {
                         System.out.println(
@@ -85,6 +87,24 @@ public class Functionalities extends JFrame{
                             " , Price: " + product.getPrice()    
                             );
                     }
+
+                    //For Inventory Control:
+                    //...
+
+                    //For Delivery Charge:
+                    //...
+
+
+                    //For Approval of Financial Support:
+                    //...
+
+
+                    //For Performance Analysis:
+                    //...
+
+
+                    //For Report and Analysis:
+                    //...
                 }
             });
             buttonPanel.add(button);
