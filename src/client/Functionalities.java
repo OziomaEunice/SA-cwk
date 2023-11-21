@@ -85,6 +85,7 @@ public class Functionalities extends JFrame{
 
                     switch(buttonClicked){
                         case "Price Control":
+                            System.out.println("\n==================================");
                             List<Product> products = productDAO.getProducts();
                             for (Product product : products) {
                                 System.out.println(
@@ -93,10 +94,10 @@ public class Functionalities extends JFrame{
                                     " , Price: " + product.getPrice()    
                                     );
                             }
-                            System.out.println("\n==================================");
                         break;
 
                         case "Inventory Control":
+                            System.out.println("\n==================================");
                             List<Items> items = itemsDAO.getItems();
                             for (Items item : items) {
                                 System.out.println(
@@ -108,30 +109,32 @@ public class Functionalities extends JFrame{
                                     " , Supplier: " + item.getSupplierOfItem()
                                     );
                             }
-                            System.out.println("\n==================================");
                         break;
 
 
                         case "Delivery Charge":
+                            System.out.println("\n==================================");
                             System.out.println("Delivery Charge");
 
                         break;
 
 
                         case "Approval of Financial Support":
+                            System.out.println("\n==================================");
                             System.out.println("Approval of Financial Support");
                         
                         break;
 
 
                         case "Performance Analysis":
+                            System.out.println("\n==================================");
                             System.out.println("Performance Analysis");
 
                         break;
 
 
                         default:
-                            System.out.println("No button clicked");
+                            System.out.println("NO BUTTON CLICKED");
                         break;
                     }
                 }
