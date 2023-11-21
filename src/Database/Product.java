@@ -7,6 +7,7 @@ public class Product {
 
 
     // create constructor, getters and setters
+    // (Help from ChatGPT)
 
 
     // constructor

@@ -11,7 +11,8 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<Product> getProducts() {
-        // ...
+        // Create an array list of products
+        // (Help from ChatGPT)
         List<Product> products = new ArrayList<>();
 
         try(Connection conn = DatabaseConnector.getConnection();
