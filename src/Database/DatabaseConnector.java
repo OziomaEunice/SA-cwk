@@ -18,33 +18,4 @@ public class DatabaseConnector{
         }
         return DriverManager.getConnection(DB_URL, DB_username, DB_password);
     }
-
-
-    public static void fetchDataFromProductTable() {
-        try (Connection connection = getConnection();
-             Statement statement = connection.createStatement()) {
-
-            // Execute a query
-            String query = "SELECT * FROM typeOfProduct";
-            ResultSet resultSet = statement.executeQuery(query);
-
-            // Process the result set
-            while (resultSet.next()) {
-                int productId = resultSet.getInt("ProductID");
-                String productName = resultSet.getString("ProductName");
-                double price = resultSet.getDouble("Price");
-
-                System.out.println("Product ID: " + productId + ", Name: " + productName + ", Price: " + price);
-                // Here, you can handle the retrieved data as needed for your GUI
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    //main class to execute the program
-    public static void main(String[] args) {
-        fetchDataFromProductTable();
-    }
 }
