@@ -2,12 +2,13 @@ package client;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.util.List;
 
-import Database.Items;
-import Database.ItemsDAOImpl;
-import Database.Product;
-import Database.ProductDAOImpl;
+import App.Items;
+import App.ItemsDAOImpl;
+import App.Product;
+import App.ProductDAOImpl;
+
+import java.util.List;
 
 
 public class Functionalities extends JFrame{

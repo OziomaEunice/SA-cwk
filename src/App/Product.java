@@ -1,4 +1,4 @@
-package Database;
+package App;
 
 public class Product {
     private int productId;
