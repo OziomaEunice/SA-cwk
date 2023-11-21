@@ -7,7 +7,6 @@ import java.util.List;
 import Database.Items;
 import Database.ItemsDAOImpl;
 import Database.Product;
-import Database.ProductDAO;
 import Database.ProductDAOImpl;
 
 
