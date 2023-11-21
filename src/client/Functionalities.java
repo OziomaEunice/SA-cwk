@@ -4,6 +4,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.util.List;
 
+import Database.Items;
+import Database.ItemsDAOImpl;
 import Database.Product;
 import Database.ProductDAO;
 import Database.ProductDAOImpl;
@@ -17,6 +19,7 @@ public class Functionalities extends JFrame{
 
     // Instantiate the DAO implementation
     private ProductDAOImpl productDAO = new ProductDAOImpl();
+    private ItemsDAOImpl itemsDAO = new ItemsDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -75,36 +78,62 @@ public class Functionalities extends JFrame{
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // When button is clicked,
+                    // Use switch case so when button is clicked,
                     // display results in the console
 
-                    //For Price Control:
-                    List<Product> products = productDAO.getProducts();
-                    for (Product product : products) {
-                        System.out.println(
-                            "Produc ID: "+ product.getProductId() + 
-                            " , Name: " + product.getProductName() +
-                            " , Price: " + product.getPrice()    
-                            );
+                    String buttonClicked = buttonNames[index];
+
+                    switch(buttonClicked){
+                        case "Price Control":
+                            List<Product> products = productDAO.getProducts();
+                            for (Product product : products) {
+                                System.out.println(
+                                    "Produc ID: "+ product.getProductId() + 
+                                    " , Name: " + product.getProductName() +
+                                    " , Price: " + product.getPrice()    
+                                    );
+                            }
+                            System.out.println("\n==================================");
+                        break;
+
+                        case "Inventory Control":
+                            List<Items> items = itemsDAO.getItems();
+                            for (Items item : items) {
+                                System.out.println(
+                                    "Item ID: "+ item.getItemID() + 
+                                    " , Name: " + item.getItemName() +
+                                    " , Category: " + item.getItemCategory() +
+                                    " , Price: " + item.getItemPrice() +  
+                                    " , Description: " + item.getItemDescription() +
+                                    " , Supplier: " + item.getSupplierOfItem()
+                                    );
+                            }
+                            System.out.println("\n==================================");
+                        break;
+
+
+                        case "Delivery Charge":
+                            System.out.println("Delivery Charge");
+
+                        break;
+
+
+                        case "Approval of Financial Support":
+                            System.out.println("Approval of Financial Support");
+                        
+                        break;
+
+
+                        case "Performance Analysis":
+                            System.out.println("Performance Analysis");
+
+                        break;
+
+
+                        default:
+                            System.out.println("No button clicked");
+                        break;
                     }
-
-                    //For Inventory Control:
-                    //...
-
-                    //For Delivery Charge:
-                    //...
-
-
-                    //For Approval of Financial Support:
-                    //...
-
-
-                    //For Performance Analysis:
-                    //...
-
-
-                    //For Report and Analysis:
-                    //...
                 }
             });
             buttonPanel.add(button);
@@ -119,15 +148,15 @@ public class Functionalities extends JFrame{
     // Function to get different colors for buttons
     private Color getButtonColor(int index) {
         switch (index) {
-            case 1:
+            case 0:
                 return Color.RED;
-            case 2:
+            case 1:
                 return Color.BLUE;
-            case 3:
+            case 2:
                 return Color.GREEN;
-            case 4:
+            case 3:
                 return Color.ORANGE;
-            case 5:
+            case 4:
                 return Color.MAGENTA;
             default:
                 return Color.BLACK;

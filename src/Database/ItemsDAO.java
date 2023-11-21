@@ -1,5 +1,7 @@
 package Database;
 
-public class ItemsDAO {
-    
+import java.util.List;
+
+public interface ItemsDAO {
+    List<Items> getItems();   
 }
