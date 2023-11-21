@@ -3,10 +3,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import App.Items;
-import App.ItemsDAOImpl;
-import App.Product;
-import App.ProductDAOImpl;
+import App.inventoryControl.Items;
+import App.inventoryControl.ItemsDAOImpl;
+import App.priceControl.Product;
+import App.priceControl.ProductDAOImpl;
+import App.priceControl.Sales;
+import App.priceControl.SalesDAOImpl;
 
 import java.util.List;
 
@@ -20,6 +22,7 @@ public class Functionalities extends JFrame{
     // Instantiate the DAO implementation
     private ProductDAOImpl productDAO = new ProductDAOImpl();
     private ItemsDAOImpl itemsDAO = new ItemsDAOImpl();
+    private SalesDAOImpl salesDAO = new SalesDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -87,11 +90,23 @@ public class Functionalities extends JFrame{
                         case "Price Control":
                             System.out.println("\n==================================");
                             List<Product> products = productDAO.getProducts();
+                            List<Sales> sales = salesDAO.getSales();
+                            
                             for (Product product : products) {
                                 System.out.println(
                                     "Produc ID: "+ product.getProductId() + 
                                     " , Name: " + product.getProductName() +
                                     " , Price: " + product.getPrice()    
+                                    );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (Sales sale : sales) {
+                                System.out.println(
+                                    "Sales ID: "+ sale.getSalesOfferId() + 
+                                    " , Name: " + sale.getNameOfSalesOffer() +
+                                    " , Description: " + sale.getDescriptionOfSalesOffer()    
                                     );
                             }
                         break;

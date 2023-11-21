@@ -1,4 +1,4 @@
-package App;
+package App.inventoryControl;
 
 import java.util.List;
 

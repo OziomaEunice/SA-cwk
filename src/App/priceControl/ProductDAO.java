@@ -1,4 +1,4 @@
-package App;
+package App.priceControl;
 
 import java.util.List;
 

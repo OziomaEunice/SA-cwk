@@ -1,4 +1,4 @@
-package App;
+package App.inventoryControl;
 
 public class Items {
     private int itemID;

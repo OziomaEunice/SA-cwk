@@ -1,4 +1,4 @@
-package App;
+package App.priceControl;
 
 public class Product {
     private int productId;

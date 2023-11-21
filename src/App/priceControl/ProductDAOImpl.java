@@ -1,4 +1,4 @@
-package App;
+package App.priceControl;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import App.DatabaseConnector;
 
 public class ProductDAOImpl implements ProductDAO {
 
