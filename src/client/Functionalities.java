@@ -2,6 +2,11 @@ package client;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.util.List;
+
+import Database.Product;
+import Database.ProductDAO;
+import Database.ProductDAOImpl;
 
 
 public class Functionalities extends JFrame{
@@ -9,6 +14,9 @@ public class Functionalities extends JFrame{
     final private Font maiFont = new Font("Segoe UI Black", Font.BOLD, 18); // Global variable -> Create a font for the main panel
     JLabel lbWelcome; // Global variable -> Create a label for the main panel
     JPanel cardPanel; // Global variable -> Create a card panel
+
+    // Instantiate the DAO implementation
+    private ProductDAOImpl productDAO = new ProductDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -67,11 +75,16 @@ public class Functionalities extends JFrame{
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    // Perform action when button is clicked
-                    // For example, transitioning to a new page
-                    // Replace this with your desired functionality
-                    System.out.println(buttonNames[index] + " clicked");
-                    // You can open a new page or perform other actions here
+                    // When button is clicked,
+                    // display results in the console
+                    List<Product> products = productDAO.getProducts();
+                    for (Product product : products) {
+                        System.out.println(
+                            "Produc ID: "+ product.getProductId() + 
+                            " , Name: " + product.getProductName() +
+                            " , Price: " + product.getPrice()    
+                            );
+                    }
                 }
             });
             buttonPanel.add(button);
