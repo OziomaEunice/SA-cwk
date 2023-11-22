@@ -78,7 +78,7 @@ public class Functionalities extends JFrame{
         String[] buttonNames = {
             "Price Control",
             "Inventory Control",
-            "Delivery Charge",
+            "Loyalty Card",
             "Approval of Financial Support",
             "Performance Analysis"
         };
