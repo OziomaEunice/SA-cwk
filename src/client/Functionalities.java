@@ -7,6 +7,8 @@ import App.inventoryControl.Items;
 import App.inventoryControl.ItemsDAOImpl;
 import App.priceControl.Product;
 import App.priceControl.ProductDAOImpl;
+import App.priceControl.ProductSales;
+import App.priceControl.ProductSalesDAOImpl;
 import App.priceControl.Sales;
 import App.priceControl.SalesDAOImpl;
 
@@ -23,6 +25,7 @@ public class Functionalities extends JFrame{
     private ProductDAOImpl productDAO = new ProductDAOImpl();
     private ItemsDAOImpl itemsDAO = new ItemsDAOImpl();
     private SalesDAOImpl salesDAO = new SalesDAOImpl();
+    private ProductSalesDAOImpl productSalesDAO = new ProductSalesDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -91,6 +94,7 @@ public class Functionalities extends JFrame{
                             System.out.println("\n==================================");
                             List<Product> products = productDAO.getProducts();
                             List<Sales> sales = salesDAO.getSales();
+                            List<ProductSales> productSales = productSalesDAO.getProductSales();
                             
                             for (Product product : products) {
                                 System.out.println(
@@ -107,6 +111,15 @@ public class Functionalities extends JFrame{
                                     "Sales ID: "+ sale.getSalesOfferId() + 
                                     " , Name: " + sale.getNameOfSalesOffer() +
                                     " , Description: " + sale.getDescriptionOfSalesOffer()    
+                                    );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (ProductSales productSale : productSales) {
+                                System.out.println(
+                                    "Product ID: "+ productSale.getProductId() + 
+                                    " , Sales Offer ID: " + productSale.getSalesOfferId()    
                                     );
                             }
                         break;
