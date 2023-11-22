@@ -3,6 +3,10 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import App.financialApproval.CustomerInfo;
+import App.financialApproval.CustomerInfoDAOImpl;
+import App.financialApproval.FinancialApproval;
+import App.financialApproval.FinancialApprovalDAOImpl;
 import App.inventoryControl.Items;
 import App.inventoryControl.ItemsDAOImpl;
 import App.inventoryControl.Stock_Levels;
@@ -29,6 +33,8 @@ public class Functionalities extends JFrame{
     private SalesDAOImpl salesDAO = new SalesDAOImpl();
     private ProductSalesDAOImpl productSalesDAO = new ProductSalesDAOImpl();
     private Stock_LevelsDAOImpl stockSalesDAO = new Stock_LevelsDAOImpl();
+    private CustomerInfoDAOImpl customerInfoDAO = new CustomerInfoDAOImpl();
+    private FinancialApprovalDAOImpl financialApprovalDAO = new FinancialApprovalDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -162,7 +168,34 @@ public class Functionalities extends JFrame{
 
                         case "Approval of Financial Support":
                             System.out.println("\n===========================\nAPPROVAL OF FINANCIAL SUPPORT:\n===========================");
-                        
+                            List<CustomerInfo> customersInfos = customerInfoDAO.getCustomerInfo();
+                            List<FinancialApproval> financialApprovals = financialApprovalDAO.getFinancialApproval();
+
+                            for (CustomerInfo customerInfo : customersInfos) {
+                                System.out.println(
+                                    "Customer ID: "+ customerInfo.getCustomerId() + 
+                                    " , Name: " + customerInfo.getCustomerName() +
+                                    " , Address: " + customerInfo.getCustomerAddress() +
+                                    " , Phone Number: " + customerInfo.getCustomerPhone() +
+                                    " , Email: " + customerInfo.getCustomerEmail() +
+                                    " , City: " + customerInfo.getCustomerCity() +
+                                    " , Zip Code: " + customerInfo.getCustomerZipCode() +
+                                    " , Country: " + customerInfo.getCustomerCountry()
+                                );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (FinancialApproval financialApproval : financialApprovals) {
+                                System.out.println(
+                                    "Customer ID: "+ financialApproval.getCustomerId() + 
+                                    " , Approval ID: " + financialApproval.getApprovalId() +
+                                    " , Amount: $" + financialApproval.getApprovalAmount() +
+                                    " , Status: " + financialApproval.getApprovalStatus() +
+                                    " , Time: " + financialApproval.getApprovalTime() +
+                                    " , Date: " + financialApproval.getApprovalDate()
+                                );
+                            }
                         break;
 
 
