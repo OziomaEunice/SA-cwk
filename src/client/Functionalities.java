@@ -11,12 +11,20 @@ import App.inventoryControl.Items;
 import App.inventoryControl.ItemsDAOImpl;
 import App.inventoryControl.Stock_Levels;
 import App.inventoryControl.Stock_LevelsDAOImpl;
+import App.loyaltyCard.Customer;
+import App.loyaltyCard.CustomerDAOImpl;
+import App.loyaltyCard.LoyaltyCard;
+import App.loyaltyCard.LoyaltyCardDAOImpl;
 import App.priceControl.Product;
 import App.priceControl.ProductDAOImpl;
 import App.priceControl.ProductSales;
 import App.priceControl.ProductSalesDAOImpl;
 import App.priceControl.Sales;
 import App.priceControl.SalesDAOImpl;
+import App.reportAnalysis.CustomerInfoReport;
+import App.reportAnalysis.CustomerInfoReportDAOImpl;
+import App.reportAnalysis.CustomerPurchaseReport;
+import App.reportAnalysis.CustomerPurchaseReportDAOImpl;
 
 import java.util.List;
 
@@ -35,6 +43,10 @@ public class Functionalities extends JFrame{
     private Stock_LevelsDAOImpl stockSalesDAO = new Stock_LevelsDAOImpl();
     private CustomerInfoDAOImpl customerInfoDAO = new CustomerInfoDAOImpl();
     private FinancialApprovalDAOImpl financialApprovalDAO = new FinancialApprovalDAOImpl();
+    private CustomerDAOImpl customerDAO = new CustomerDAOImpl();
+    private LoyaltyCardDAOImpl loyaltyCardDAO = new LoyaltyCardDAOImpl();
+    private CustomerInfoReportDAOImpl customerInfoReportDAO = new CustomerInfoReportDAOImpl();
+    private CustomerPurchaseReportDAOImpl customerPurchaseReportDAO = new CustomerPurchaseReportDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -167,6 +179,33 @@ public class Functionalities extends JFrame{
                         /*LOYALTY CARD*/
                         case "Loyalty Card":
                             System.out.println("\n===========================\nLOYALTY CARD:\n===========================");
+                            List<Customer> customers = customerDAO.getCustomer();
+                            List<LoyaltyCard> cards = loyaltyCardDAO.getLoyaltyCards();
+
+                            for (Customer customer : customers) {
+                                System.out.println(
+                                    "Customer ID: "+ customer.getCustomerId() + 
+                                    " , Name: " + customer.getCustomerName() +
+                                    " , Address: " + customer.getCustomerAddress() +
+                                    " , Phone Number: " + customer.getCustomerPhone() +
+                                    " , Email: " + customer.getCustomerEmail() +
+                                    " , City: " + customer.getCustomerCity() +
+                                    " , Zip Code: " + customer.getCustomerZipCode() +
+                                    " , Country: " + customer.getCustomerCountry()
+                                );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (LoyaltyCard card : cards) {
+                                System.out.println(
+                                    "Customer ID: "+ card.getCustomerId() +
+                                    " , Card Number: " + card.getCardNumber() +
+                                    " , Card ID: " + card.getCardId() +
+                                    " , Total Points: " + card.getTotalPoints() +
+                                    " , Points Used: " + card.getPoints()
+                                );
+                            }
 
                         break;
 
@@ -208,6 +247,28 @@ public class Functionalities extends JFrame{
                         /*PERFORMANCE ANALYSIS*/
                         case "Performance Analysis":
                             System.out.println("\n===========================\nPERFORMANCE ANALYSIS:\n===========================");
+                            List<CustomerInfoReport> customersInfoReports = customerInfoReportDAO.getCustomerInfoReport();
+                            List<CustomerPurchaseReport> customersPurchaseReports = customerPurchaseReportDAO.getCustomerPurchaseReport();
+
+                            for (CustomerInfoReport customerInfoReport : customersInfoReports) {
+                                System.out.println(
+                                    "Customer ID: "+ customerInfoReport.getCustomerId() + 
+                                    " , Name: " + customerInfoReport.getCustomerName() +
+                                    " , Email: " + customerInfoReport.getCustomerEmail()
+                                );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (CustomerPurchaseReport customerPurchaseReport : customersPurchaseReports) {
+                                System.out.println(
+                                    "Customer ID: "+ customerPurchaseReport.getCustomerId() + 
+                                    " , Purchase ID: " + customerPurchaseReport.getPurchaseId() +
+                                    " , Purchase Date: " + customerPurchaseReport.getPurchaseDate() +
+                                    " , Purchase Time: " + customerPurchaseReport.getPurchaseTime() +
+                                    " , Amount: $" + customerPurchaseReport.getPurchaseAmount()
+                                );
+                            }
 
                         break;
 
