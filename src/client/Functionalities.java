@@ -99,6 +99,7 @@ public class Functionalities extends JFrame{
                     String buttonClicked = buttonNames[index];
 
                     switch(buttonClicked){
+                        /*PRICE CONTROL*/
                         case "Price Control":
                             System.out.println("\n===========================\nPRICE CONTROL:\n===========================");
                             List<Product> products = productDAO.getProducts();
@@ -133,6 +134,8 @@ public class Functionalities extends JFrame{
                             }
                         break;
 
+
+                        /*INVENTORY CONTROL*/
                         case "Inventory Control":
                             System.out.println("\n===========================\nINVENTORY CONTROL:\n===========================");
                             List<Items> items = itemsDAO.getItems();
@@ -160,12 +163,15 @@ public class Functionalities extends JFrame{
                         break;
 
 
+                        
+                        /*LOYALTY CARD*/
                         case "Loyalty Card":
                             System.out.println("\n===========================\nLOYALTY CARD:\n===========================");
 
                         break;
 
 
+                        /*APPROVAL OF FINANCIAL SUPPORT*/
                         case "Approval of Financial Support":
                             System.out.println("\n===========================\nAPPROVAL OF FINANCIAL SUPPORT:\n===========================");
                             List<CustomerInfo> customersInfos = customerInfoDAO.getCustomerInfo();
@@ -199,12 +205,14 @@ public class Functionalities extends JFrame{
                         break;
 
 
+                        /*PERFORMANCE ANALYSIS*/
                         case "Performance Analysis":
                             System.out.println("\n===========================\nPERFORMANCE ANALYSIS:\n===========================");
 
                         break;
 
 
+                        
                         default:
                             System.out.println("NO BUTTON CLICKED");
                         break;
