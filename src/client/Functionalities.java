@@ -3,37 +3,17 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-import App.financialApproval.CustomerInfo;
-import App.financialApproval.CustomerInfoDAOImpl;
-import App.financialApproval.FinancialApproval;
-import App.financialApproval.FinancialApprovalDAOImpl;
-import App.inventoryControl.Items;
-import App.inventoryControl.ItemsDAOImpl;
-import App.inventoryControl.Stock_Levels;
-import App.inventoryControl.Stock_LevelsDAOImpl;
+import App.financialApproval.*;
+import App.inventoryControl.*;
 import App.loyaltyCard.Customer;
-import App.loyaltyCard.CustomerDAOImpl;
-import App.loyaltyCard.LoyaltyCard;
-import App.loyaltyCard.LoyaltyCardDAOImpl;
-import App.priceControl.Product;
-import App.priceControl.ProductDAOImpl;
-import App.priceControl.ProductSales;
-import App.priceControl.ProductSalesDAOImpl;
-import App.priceControl.Sales;
-import App.priceControl.SalesDAOImpl;
-import App.reportAnalysis.CustomerInfoReport;
-import App.reportAnalysis.CustomerInfoReportDAOImpl;
-import App.reportAnalysis.CustomerPurchaseReport;
-import App.reportAnalysis.CustomerPurchaseReportDAOImpl;
+import App.loyaltyCard.*;
+import App.priceControl.*;
+import App.reportAnalysis.*;
 
 import java.util.List;
 
 
 public class Functionalities extends JFrame{
-
-    final private Font maiFont = new Font("Segoe UI Black", Font.BOLD, 18); // Global variable -> Create a font for the main panel
-    JLabel lbWelcome; // Global variable -> Create a label for the main panel
-    JPanel cardPanel; // Global variable -> Create a card panel
 
     // Instantiate the DAO implementation
     private ProductDAOImpl productDAO = new ProductDAOImpl();
@@ -47,6 +27,12 @@ public class Functionalities extends JFrame{
     private LoyaltyCardDAOImpl loyaltyCardDAO = new LoyaltyCardDAOImpl();
     private CustomerInfoReportDAOImpl customerInfoReportDAO = new CustomerInfoReportDAOImpl();
     private CustomerPurchaseReportDAOImpl customerPurchaseReportDAO = new CustomerPurchaseReportDAOImpl();
+
+    
+
+    final private Font maiFont = new Font("Segoe UI Black", Font.BOLD, 18); // Global variable -> Create a font for the main panel
+    JLabel lbWelcome; // Global variable -> Create a label for the main panel
+    JPanel cardPanel; // Global variable -> Create a card panel
 
     // Create the constructor of the class
     public Functionalities() {
