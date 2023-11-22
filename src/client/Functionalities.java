@@ -160,8 +160,8 @@ public class Functionalities extends JFrame{
                         break;
 
 
-                        case "Delivery Charge":
-                            System.out.println("\n===========================\nDELIVERY CHARGE:\n===========================");
+                        case "Loyalty Card":
+                            System.out.println("\n===========================\nLOYALTY CARD:\n===========================");
 
                         break;
 
