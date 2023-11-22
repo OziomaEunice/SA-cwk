@@ -13,7 +13,7 @@ public class ItemsDAOImpl implements ItemsDAO {
 
     @Override
     public List<Items> getItems() {
-        // ...
+        // Create an array list of items
         List<Items> items = new ArrayList<>();
 
         try(Connection conn = DatabaseConnector.getConnection();

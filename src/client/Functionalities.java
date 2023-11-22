@@ -5,6 +5,8 @@ import javax.swing.*;
 
 import App.inventoryControl.Items;
 import App.inventoryControl.ItemsDAOImpl;
+import App.inventoryControl.Stock_Levels;
+import App.inventoryControl.Stock_LevelsDAOImpl;
 import App.priceControl.Product;
 import App.priceControl.ProductDAOImpl;
 import App.priceControl.ProductSales;
@@ -26,6 +28,7 @@ public class Functionalities extends JFrame{
     private ItemsDAOImpl itemsDAO = new ItemsDAOImpl();
     private SalesDAOImpl salesDAO = new SalesDAOImpl();
     private ProductSalesDAOImpl productSalesDAO = new ProductSalesDAOImpl();
+    private Stock_LevelsDAOImpl stockSalesDAO = new Stock_LevelsDAOImpl();
 
     // Create the constructor of the class
     public Functionalities() {
@@ -61,7 +64,7 @@ public class Functionalities extends JFrame{
 
 
 
-        /* This part of code from ChatGPT */
+        /* Some parts of code are from ChatGPT */
         // Create a panel for buttons arranged in two columns
         JPanel buttonPanel = new JPanel(new GridLayout(0, 2, 10, 10)); // 0 rows, 2 columns
 
@@ -91,16 +94,16 @@ public class Functionalities extends JFrame{
 
                     switch(buttonClicked){
                         case "Price Control":
-                            System.out.println("\n==================================");
+                            System.out.println("\n===========================\nPRICE CONTROL:\n===========================");
                             List<Product> products = productDAO.getProducts();
                             List<Sales> sales = salesDAO.getSales();
                             List<ProductSales> productSales = productSalesDAO.getProductSales();
                             
                             for (Product product : products) {
                                 System.out.println(
-                                    "Produc ID: "+ product.getProductId() + 
+                                    "Product ID: "+ product.getProductId() + 
                                     " , Name: " + product.getProductName() +
-                                    " , Price: " + product.getPrice()    
+                                    " , Price: $" + product.getPrice()    
                                     );
                             }
 
@@ -125,38 +128,46 @@ public class Functionalities extends JFrame{
                         break;
 
                         case "Inventory Control":
-                            System.out.println("\n==================================");
+                            System.out.println("\n===========================\nINVENTORY CONTROL:\n===========================");
                             List<Items> items = itemsDAO.getItems();
+                            List<Stock_Levels> stocks = stockSalesDAO.getStocks();
+
                             for (Items item : items) {
                                 System.out.println(
                                     "Item ID: "+ item.getItemID() + 
                                     " , Name: " + item.getItemName() +
                                     " , Category: " + item.getItemCategory() +
-                                    " , Price: " + item.getItemPrice() +  
+                                    " , Price: $" + item.getItemPrice() +  
                                     " , Description: " + item.getItemDescription() +
                                     " , Supplier: " + item.getSupplierOfItem()
+                                    );
+                            }
+
+                            System.out.println("\n-----------------------------------");
+
+                            for (Stock_Levels stock : stocks) {
+                                System.out.println(
+                                    "Item ID: "+ stock.getItemId() + 
+                                    " , Quantity: " + stock.getQuantity()    
                                     );
                             }
                         break;
 
 
                         case "Delivery Charge":
-                            System.out.println("\n==================================");
-                            System.out.println("Delivery Charge");
+                            System.out.println("\n===========================\nDELIVERY CHARGE:\n===========================");
 
                         break;
 
 
                         case "Approval of Financial Support":
-                            System.out.println("\n==================================");
-                            System.out.println("Approval of Financial Support");
+                            System.out.println("\n===========================\nAPPROVAL OF FINANCIAL SUPPORT:\n===========================");
                         
                         break;
 
 
                         case "Performance Analysis":
-                            System.out.println("\n==================================");
-                            System.out.println("Performance Analysis");
+                            System.out.println("\n===========================\nPERFORMANCE ANALYSIS:\n===========================");
 
                         break;
 
