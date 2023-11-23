@@ -5,7 +5,6 @@ import javax.swing.*;
 
 import App.financialApproval.*;
 import App.inventoryControl.*;
-import App.loyaltyCard.Customer;
 import App.loyaltyCard.*;
 import App.priceControl.*;
 import App.reportAnalysis.*;
@@ -33,6 +32,8 @@ public class Functionalities extends JFrame{
     final private Font maiFont = new Font("Segoe UI Black", Font.BOLD, 18); // Global variable -> Create a font for the main panel
     JLabel lbWelcome; // Global variable -> Create a label for the main panel
     JPanel cardPanel; // Global variable -> Create a card panel
+
+    private boolean changeButtonAdded = false; // Create a boolean to check if the change button is added or not, and if so, do not add another button
 
     // Create the constructor of the class
     public Functionalities() {
@@ -130,6 +131,34 @@ public class Functionalities extends JFrame{
                                     " , Sales Offer ID: " + productSale.getSalesOfferId()    
                                     );
                             }
+
+                            // create a new button that when clicked, will display a prompt to a user
+                            // to ask "What changes do you want?" then the user will insert new data into the
+                            // Product table.
+                            JButton btnChange = new JButton("Change");
+                            btnChange.setFont(maiFont);
+                            btnChange.setPreferredSize(new Dimension(100, 200));
+                            
+                            btnChange.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    String promptInputFromUser = JOptionPane.showInputDialog("What changes do you want?");
+
+                                    // check if the user typed "update" and proceed accordingly
+                                    if(promptInputFromUser != null && promptInputFromUser.equalsIgnoreCase("update")){
+                                        String productId = JOptionPane.showInputDialog("Enter Product ID: ");
+                                        String productName = JOptionPane.showInputDialog("Enter Product Name: ");
+                                        String productPrice = JOptionPane.showInputDialog("Enter Product Price: ");
+
+                                        // update the product table
+                                        productDAO.updateProduct(productId, productName, productPrice);
+                                    }
+                                } 
+                            });
+                            buttonPanel.add(btnChange);
+                            buttonPanel.revalidate();
+                            buttonPanel.repaint();
+                            changeButtonAdded = true;
                         break;
 
 

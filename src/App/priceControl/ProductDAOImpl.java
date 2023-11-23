@@ -1,6 +1,7 @@
 package App.priceControl;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -41,6 +42,35 @@ public class ProductDAOImpl implements ProductDAO {
         }
 
         return products;
+    }
+
+    // When this method is called it will update the product table
+    public void updateProduct(String productId, String productName, String productPrice) {
+        try(Connection conn = DatabaseConnector.getConnection();
+            Statement statement = conn.createStatement()){
+
+            PreparedStatement preparedStatement = conn.prepareStatement("UPDATE typeOfProduct SET ProductName = ?, Price = ? WHERE ProductID = ?");
+
+            preparedStatement.setString(1, productName);
+            preparedStatement.setString(2, productPrice);
+            preparedStatement.setString(3, productId);
+
+            int newResults = preparedStatement.executeUpdate();
+            //statement.executeUpdate(query);
+
+            // check to confirm if changes were made
+            if (newResults > 0) {
+                System.out.println("Product updated successfully");
+            } else {
+                System.out.println("Product not updated");
+            }
+
+            statement.close();
+            conn.close();
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     
 }
