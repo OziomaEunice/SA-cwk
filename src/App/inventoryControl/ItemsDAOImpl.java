@@ -34,6 +34,10 @@ public class ItemsDAOImpl implements ItemsDAO {
                 items.add(item);
 
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

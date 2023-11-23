@@ -33,6 +33,10 @@ public class LoyaltyCardDAOImpl implements LoyaltyCardDAO {
 
                 loyaltyCards.add(loyaltyCard);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

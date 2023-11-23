@@ -29,6 +29,10 @@ public class Stock_LevelsDAOImpl implements Stock_LevelsDAO {
 
                 list.add(stock);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

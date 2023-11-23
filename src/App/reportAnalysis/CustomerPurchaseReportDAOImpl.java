@@ -32,6 +32,10 @@ public class CustomerPurchaseReportDAOImpl implements CustomerPurchaseReportDAO 
                 customerPurchaseReport.setPurchaseAmount(resultSet.getString("purchaseAmount"));
                 result.add(customerPurchaseReport);
             }
+            
+            statement.close();
+            conn.close();
+            
 
         } catch (SQLException e) {
             e.printStackTrace();

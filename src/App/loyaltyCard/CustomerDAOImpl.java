@@ -36,6 +36,10 @@ public class CustomerDAOImpl implements CustomerDAO {
 
                 customers.add(customer);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

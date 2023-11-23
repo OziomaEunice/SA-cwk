@@ -31,6 +31,10 @@ public class SalesDAOImpl implements SalesDAO {
 
                 sales.add(sale);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

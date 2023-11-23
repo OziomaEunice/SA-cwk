@@ -31,6 +31,10 @@ public class CustomerInfoReportDAOImpl implements CustomerInfoReportDAO {
 
                 list.add(customerInfoReport);
             }
+            
+            statement.close();
+            conn.close();
+            
 
         } catch (SQLException e) {
             e.printStackTrace(); 

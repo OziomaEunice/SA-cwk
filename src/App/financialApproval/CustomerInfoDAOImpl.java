@@ -36,6 +36,10 @@ public class CustomerInfoDAOImpl implements CustomerInfoDAO {
 
                 customers.add(customer);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

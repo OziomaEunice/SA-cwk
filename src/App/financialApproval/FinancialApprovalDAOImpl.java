@@ -35,6 +35,10 @@ public class FinancialApprovalDAOImpl implements FinancialApprovalDAO {
 
                 financialApprovals.add(financialApproval);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

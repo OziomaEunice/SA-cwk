@@ -32,6 +32,10 @@ public class ProductDAOImpl implements ProductDAO {
 
                 products.add(product);
             }
+            
+            statement.close();
+            conn.close();
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }
